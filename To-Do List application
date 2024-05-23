@@ -1,0 +1,35 @@
+tasks = []
+
+def add_task(name, priority, due_date):
+    task = {'name': name, 'priority': priority, 'due_date': due_date, 'completed': False}
+    tasks.append(task)
+    print("Task added successfully.")
+
+def display_tasks():
+    for index, task in enumerate(tasks, start=1):
+        print(f"Task {index}:")
+        print(f"Name: {task['name']}")
+        print(f"Priority: {task['priority']}")
+        print(f"Due Date: {task['due_date']}")
+        status = "Completed" if task['completed'] else "Not Completed"
+        print(f"Status: {status}")
+        print("----------------------")
+
+def mark_completed(task_index):
+    tasks[task_index]['completed'] = True
+    print(f"Task {task_index + 1} marked as completed.")
+
+def delete_task(task_index):
+    del tasks[task_index]
+    print("Task deleted successfully.")
+
+# Test the functions
+add_task("Complete project", "High", "2024-05-30")
+add_task("Buy groceries", "Medium", "2024-05-25")
+display_tasks()
+
+# Choose a task index to mark as completed or delete
+task_index = 0  # Change this index based on the task you want to mark as completed or delete
+mark_completed(task_index)
+delete_task(task_index)
+display_tasks()
